@@ -19,10 +19,11 @@ import { CreateUserFormComponent } from './components/create-user-form/create-us
 import { RouterModule } from '@angular/router';
 import { MatInputModule } from '@angular/material';
 import { UpdateUserFormComponent } from './components/update-user-form/update-user-form.component';
-import { DatePipe } from '@angular/common'
+import { DatePipe } from '@angular/common';
+import { TitleBarComponent } from './components/title-bar/title-bar.component'
 
 @NgModule({
-  declarations: [UserTableComponent, DeleteDialogComponent, CreateUserFormComponent, UpdateUserFormComponent],
+  declarations: [UserTableComponent, DeleteDialogComponent, CreateUserFormComponent, UpdateUserFormComponent, TitleBarComponent],
   imports: [
     CommonModule,
     UserTablesRoutingModule,

@@ -69,9 +69,7 @@ export class UpdateUserFormComponent implements OnInit {
           this.onClickBack();
         }, err => {
           this.isLoading = false;
-          this.snackBar.open('Ocurrio un error al actualiazr el usuario', 'Entendido', {
-            duration: 1000
-          });
+          this.showNotFoundAlert();
         }
       );
     }

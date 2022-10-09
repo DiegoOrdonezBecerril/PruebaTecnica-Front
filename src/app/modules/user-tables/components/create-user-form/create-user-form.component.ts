@@ -45,9 +45,15 @@ export class CreateUserFormComponent implements OnInit {
       this.isLoading = true;
 
       this.usersService.createUser(this.userRequest).subscribe(
-        data =>{
+        data => {
           this.isLoading = false;
-          this.onClickBack();
+          if (data.idUser != 0) {
+            this.onClickBack();
+          } else {
+            this.snackBar.open('Ocurrio un error al agregar el usuario', 'Entendido', {
+              duration: 1000
+            });
+          }
         }, err => {
           this.isLoading = false;
           this.snackBar.open('Ocurrio un error al agregar el usuario', 'Entendido', {

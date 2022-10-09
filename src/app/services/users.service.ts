@@ -9,7 +9,7 @@ import { UserResponse } from '../models/user-response';
   providedIn: 'root'
 })
 export class UsersService {
-  private API_URI = 'https://localhost:44376/api/users';
+  private API_URI = '/api/users';
 
   constructor(private httpClient: HttpClient) { }
 

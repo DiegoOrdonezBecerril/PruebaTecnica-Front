@@ -1,0 +1,55 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="fill-remaing-space"></span>
+        <span>CRUD Usuarios</span>
+        <span class="fill-remaing-space"></span>
+    </mat-toolbar>
+    <div class="options">
+        <button mat-raised-button color="primary" routerLink="../create" >Agregar</button>
+    </div>
+    <div class="table-container">
+        <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource">
+                <ng-container matColumnDef="firstName">
+                    <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                    <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+                </ng-container>
+                <ng-container matColumnDef="lastName">
+                    <th mat-header-cell *matHeaderCellDef> Apellido </th>
+                    <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+                </ng-container>
+                <ng-container matColumnDef="birthDate">
+                    <th mat-header-cell *matHeaderCellDef> Fecha de nacimiento </th>
+                    <td mat-cell *matCellDef="let element"> {{element.birthDate | date: 'dd-MM-yyyy'}} </td>
+                </ng-container>
+                <ng-container matColumnDef="email">
+                    <th mat-header-cell *matHeaderCellDef> Correo </th>
+                    <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+                </ng-container>
+                <ng-container matColumnDef="phoneNumber">
+                    <th mat-header-cell *matHeaderCellDef> Numero de telefono </th>
+                    <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+                </ng-container>
+                <ng-container matColumnDef="update">
+                    <th mat-header-cell *matHeaderCellDef> Actualizar </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="primary" [routerLink]="['../update', element.idUser]">
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+                <ng-container matColumnDef="delete">
+                    <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+                    <td mat-cell *matCellDef="let element">
+                        <button mat-icon-button color="warn" (click)="initDelete(element.idUser)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5]" hidePageSize showFirstLastButtons></mat-paginator>
+        </div>
+    </div>
+</div>

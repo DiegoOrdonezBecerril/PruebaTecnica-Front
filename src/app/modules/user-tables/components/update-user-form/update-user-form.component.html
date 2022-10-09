@@ -1,0 +1,43 @@
+<div class="container">
+    <mat-toolbar>
+        <span class="fill-remaing-space"></span>
+        <span>Actualizar Usuario</span>
+        <span class="fill-remaing-space"></span>
+    </mat-toolbar>
+    <div class="create-form-container mat-elevation-z8">
+        <form [formGroup]="updateUserForm" (ngSubmit)="onSubmit()">
+            <p class="input">
+                <mat-form-field appearance="outline">
+                    <mat-label>Primer Nombre</mat-label>
+                    <input matInput required name="pt-firstName" [formControlName]="'firstName'">
+                    <mat-error *ngIf="!updateUserForm.get('firstName').valid">El primer nombre es un campo requerido con un maximo de 50 caracteres</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Apellido</mat-label>
+                    <input matInput required name="pt-lastName" [formControlName]="'lastName'">
+                    <mat-error *ngIf="!updateUserForm.get('lastName').valid">El apellido es un campo requerido con un maximo de 50 caracteres</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput required name="pt-birthDate" type="date" [formControlName]="'birthDate'">
+                    <mat-error *ngIf="!updateUserForm.get('birthDate').valid">La fecha de nacimiento es un campo requerido</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Correo</mat-label>
+                    <input matInput required name="pt-email" type="email" [formControlName]="'email'">
+                    <mat-error *ngIf="!updateUserForm.get('email').valid">El correo es un campo requerido y debe ser un email valido</mat-error>
+                </mat-form-field>
+                <mat-form-field appearance="outline">
+                    <mat-label>Número de Telefono</mat-label>
+                    <input matInput required name="pt-phoneNumber" [formControlName]="'phoneNumber'">
+                    <mat-error *ngIf="!updateUserForm.get('phoneNumber').valid">El numero de telefono es un campo requerido de 10 digitos</mat-error>
+                </mat-form-field>
+            </p>
+    
+            <div class="options">
+                <button mat-raised-button color="secondary" (click)="onClickBack()" >Regresar</button>
+                <button mat-raised-button color="primary" type="submit" [disabled]="isLoading">Actualizar</button>
+            </div>
+        </form>
+    </div>
+</div>
